@@ -1,3 +1,8 @@
+// uncomment the code below to see a test pass
+
+//exports.getPathType = function() {
+//
+//};
 var fs = require('fs');
 var Path = require('path');
 
@@ -16,7 +21,7 @@ exports.getPathType = function(path){
 //getPathType(process.cwd()); //should return "directory"
 //console.log(process.cwd());
 
-//C:\Users\Sarah\Desktop\sized-files\.idea
+
 //FUNCTION 2 (GETDIRECTORYTYPES)
 //read the directories
 exports.readdir = function(path){
@@ -89,17 +94,6 @@ exports.getFilePaths = function(path, depth){
 
 //FUNCTION 5 (READFILE)
 exports.readFile = function(path){
-    //return exports.getPathType(path)
-    //    .then(function(resolution){
-    //
-    //        if (resolution === 'file'){
-    //           fs.readFile(path, function(err, data){
-    //               if (err) return Promise.reject(err);
-    //               else return Promise.resolve(data);
-    //           })
-    //        }
-    //
-    //    })
     return new Promise(function(resolve,reject){
         fs.readFile(path, 'utf8', function(err, data){
             if (err) return reject(err);
@@ -126,19 +120,4 @@ exports.readFiles = function(paths){
         })
         return map;
     });
-}
-//return new Promise(function(resolve,reject){
-    //    var promises = [];
-    //
-    //    paths.forEach(function(path){
-    //        return exports.readFile(path)
-    //            .then(function(resolution){
-    //                promises.push(resolution);
-    //            })
-    //    });
-    //    return Promise.all(promises)
-    //        .then(function(resolution){
-    //            return resolution;
-    //        });
-    //})
 }
