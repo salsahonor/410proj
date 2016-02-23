@@ -61,7 +61,7 @@ exports.updatePassword = function(username, password){
 
 
 /*Create user*/
-exports.createUser = function(email,username,password,passwordconf){
+exports.createUser = function(email,username,password){
     return new Promise(function(resolve, reject){
         db.collection(users, function(err,collection){
             collection.findOne({'username':username, 'password':password},function(err,result){
